@@ -1,22 +1,24 @@
-/** IMPORT & REQUIRE PACKAGE */
+/** import & require package */
 const express = require('express')
 require('dotenv').config();
 
-/** IMPORT & REQUIRE CODE OF DEV  */
+/** import & require code of dev  */
 const routerAdmin = require('./routes/admin/index.route');
 const database    = require('./config/database');
 
-/** EXPRESS JS */
+/** express js */
 const app = express();
 const port = process.env.PORT || 3000;
 
-/** ROUTER ADMIN & CLIENT */
-routerAdmin(app);
+/** template engines - pug */
+app.set('views', './views');
+app.set('view engine', 'pug');
 
-/** CONNECT DATABSE */
-database.connect(); 
+app.use(express.static('public'));  /**   static file     */
+database.connect();                 /**   database        */
+routerAdmin(app);                   /**   router admin    */
 
-/** LISTEN SERVER */
+/** listen server */
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
