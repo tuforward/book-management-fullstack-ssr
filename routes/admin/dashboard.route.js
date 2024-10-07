@@ -1,5 +1,5 @@
 /**
- * @description ROUTE DASHBOARD
+ * @description ROUTER DASHBOARD
  * @access      ADMIN (QUẢN LÝ TRANG WEB)
  * @exports     ROUTE
  * @author      GIANG TRƯỜNG
