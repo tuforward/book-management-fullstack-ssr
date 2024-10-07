@@ -5,18 +5,20 @@
  * @author      GIANG TRƯỜNG
  */
 
-/** IMPORT & REQUIRE CODE PACKAGE */
+/** import & require package */
 const express = require('express');
+
+/** import & require code of dev  */
 const controller = require('../../controllers/admin/dashboard.controller');
 
-/** CREATE INSTANCE ROUTER */
+/** create instance router */
 const router = express.Router();
 
-/** ACCESS */
+/** access */
 router.get(
     '/',
     controller.dashboard
 )
 
-/** EXPORT */
+/** export */
 module.exports = router;

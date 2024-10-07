@@ -7,12 +7,12 @@
  */
 
 
-/** IMPORT & REQUIRE CODE OF DEV */
+/** import & require code of dev  */
 const systemConfig = require('../../config/system.config');
 const dashboardRouter = require('./dashboard.route');
 
 
-/** EXPORT */
+/** export */
 module.exports = (app) => {
     const PATH_ADMIN = systemConfig.PATH_ADMIN;
 
