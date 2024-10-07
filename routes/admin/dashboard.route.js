@@ -7,6 +7,7 @@
 
 /** IMPORT & REQUIRE CODE PACKAGE */
 const express = require('express');
+const controller = require('../../controllers/admin/dashboard.controller');
 
 /** CREATE INSTANCE ROUTER */
 const router = express.Router();
@@ -14,7 +15,7 @@ const router = express.Router();
 /** ACCESS */
 router.get(
     '/',
-    (req, res) => res.send("GIANG TRUONG")
+    controller.dashboard
 )
 
 /** EXPORT */
