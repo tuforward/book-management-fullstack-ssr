@@ -319,6 +319,13 @@ body {
 .table__title h3 {
   margin: 0px;
   font-size: 14px;
+  margin: 0px;
+  width: 300px;
+  margin-bottom: 6px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 .table__title h3:hover {
   color: #2275FC;

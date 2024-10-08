@@ -107,37 +107,41 @@ block main
                         th 
                     
                 tbody(class="table__body")
-                    each item in sanPham 
-                        tr 
-                            td 
-                                input(
-                                    type = "checkbox"
-                                    name=""
-                                    class="checkbox"
-                                )
-                            td(class="table__title")
-                                img(
-                                    src=item.img 
-                                    alt=item.title
-                                )
-                                h3 #{item.title}
-                            
-                            td #{item.category}
-                            td 
-                                if(item.stock > 0)
-                                    span(class="badge badge--active") #{item.stock} In Stock
+                    if(records)
+                        each item in records 
+                            tr 
+                                td 
+                                    input(
+                                        type = "checkbox"
+                                        name=""
+                                        class="checkbox"
+                                    )
+                                td(class="table__title")
+                                    img(
+                                        src=item.thumbnail 
+                                        alt=item.title
+                                    )
+                                    h3 #{item.title}
+                                
+                                if(item.category)
+                                    td #{item.category}
                                 else 
-                                    span(class="badge badge--inactive") Out of Stock
-                                    
-                            td #{item.price} VND
-                            
-                            td 
-                                if(item.status == "active")
-                                    span(class="badge badge--active") Hoạt động
-                                else 
-                                    span(class="badge badge--inactive") Dừng hoạt động
-                            td 
-                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                                    td Đang Cập Nhật
+                                td 
+                                    if(item.stock > 0)
+                                        span(class="badge badge--active") #{item.stock} Trong Kho
+                                    else 
+                                        span(class="badge badge--inactive") Hết Hàng
+                                        
+                                td #{item.price} VND
+                                
+                                td 
+                                    if(item.status == "active")
+                                        span(class="badge badge--active") Hoạt động
+                                    else 
+                                        span(class="badge badge--inactive") Dừng hoạt động
+                                td 
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
                     //- end table
         
         div(class="card__footer")
