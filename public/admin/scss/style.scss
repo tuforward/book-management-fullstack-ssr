@@ -568,6 +568,11 @@ body {
             color: white;
             transition: 0.8s background-color;
         }
+
+        &--active {
+            background-color: #2275FC;
+            color: white;
+        }
     }
 }
 // end filter
@@ -785,7 +790,6 @@ body {
     }
 }
 // end label
-
 
 // table permission
 .table-permission {

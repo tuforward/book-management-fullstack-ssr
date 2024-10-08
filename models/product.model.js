@@ -6,7 +6,7 @@
 
 /** import & require package */
 const mongoose = require('mongoose');
-
+    
 /** define schema */
 const productSchema = mongoose.Schema(
     {

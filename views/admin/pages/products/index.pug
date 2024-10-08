@@ -66,20 +66,25 @@ block main
         div(class="card__head")
             div(class="card__head-wrap")
                 //- filter
-                div(class="filter")
-                    span(class="filter__title") 
-                        <i class="fa-solid fa-filter"></i>
-                        |   Bộ lọc tìm kiếm
-                    div(class="filter__list")
-                        span(class="filter__list-item") Tất cả
-                        span(class="filter__list-item") Hoạt động
-                        span(class="filter__list-item") Dừng hoạt động
-                        span(class="filter__list-item")
-                            <i class="fa-solid fa-rotate-right"></i>
+                if(filterStatusBlock)
+                    div(class="filter")
+                        span(class="filter__title") 
+                            <i class="fa-solid fa-filter"></i>
+                            |   Bộ lọc tìm kiếm
+                        each item in filterStatusBlock
+                            div(class="filter__list")
+                                span(
+                                    class=`filter__list-item ${item.class}`
+                                    button-filter-status = item.status
+                                ) #{item.title}
+
+                            
                 //- left    
                 div(class="card__head-left")
                     //- form search
                     +form-search
+                    button(class="button button__outline")
+                        <i class="fa-solid fa-rotate-right"></i>
                 //- right
                 div(class="card__head-right")
                     //- add product
@@ -149,4 +154,8 @@ block main
             div(class="card__footer-right")
                 +pagination
     //- end card 
+
+    //- javascript
+    block script 
+        script(src="/admin/js/script.js")
 

@@ -447,6 +447,10 @@ body {
   color: white;
   transition: 0.8s background-color;
 }
+.filter__list-item--active {
+  background-color: #2275FC;
+  color: white;
+}
 
 .button {
   padding: 15px 22px;

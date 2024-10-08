@@ -5,6 +5,9 @@
  * @author      GIANG TRƯỜNG
  */
 
+/** import & require helper */
+const filterHelper = require('../../helper/filter.helper');
+
 /** model */
 const Product = require('../../models/product.model');
 
@@ -13,17 +16,22 @@ module.exports.index = async (req, res) => {
     try{
         // object tìm kiếm trong database
         const findDb = {
-            status: "active",
             deleted: false
         }
 
-        // Lấy dữ liệu từ database
-        let records = await Product.find({});
-        
+        // Bộ Lọc Trạng Thái
+        if(req.query.status) findDb["status"] = req.query.status;
 
+        const filterStatusBlock = filterHelper.filterStatus(req.query);
+
+
+        // Lấy dữ liệu từ database
+        let records = await Product.find(findDb);
+        
         res.render("admin/pages/products/index", {
             title: `Danh sách sản phẩm`,
-            records
+            records,
+            filterStatusBlock
         });
     }
     catch(error) {
