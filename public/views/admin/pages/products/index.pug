@@ -1,0 +1,148 @@
+extends ../../layouts/default.pug
+
+//- Mixins
+include ../../mixins/box-head
+include ../../mixins/pagination
+include ../../mixins/form
+
+//- Title
+block title 
+    title Eagle
+
+//- Mai Title
+block main
+    //- box-head
+    -
+        var breadcrumbArray = 
+        [
+            "Dashboard",
+            "Sản Phẩm",
+            "Danh Sách Sản Phẩm"
+        ]
+        
+    +box-head-use-breadcrumb("DANH SÁCH SẢN PHẨM", breadcrumbArray)
+    //- end box-head 
+
+    -   
+        var sanPham = 
+        [
+            {
+                title: "Phía sau nghi can x",
+                category:"Đang Cập Nhật",
+                img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKdEUA91tfYGjoTgBW-vRTz6mynjBNgu-tMA&s",
+                price:"1,452.500",
+                status:"active",
+                stock: 50
+            },
+            {
+                title: "Phía sau nghi can x",
+                category:"Đang Cập Nhật",
+                img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKdEUA91tfYGjoTgBW-vRTz6mynjBNgu-tMA&s",
+                price:"1,452.500",
+                status:"active",
+                stock: 50
+            },
+            {
+                title: "Phía sau nghi can x",
+                category:"Đang Cập Nhật",
+                img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKdEUA91tfYGjoTgBW-vRTz6mynjBNgu-tMA&s",
+                price:"1,452.500",
+                status:"active",
+                stock: 50
+            },
+
+            {
+                title: "Bí mật của naoke",
+                category:"Đang Cập Nhật",
+                img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZlv9AxXdlrzKkbCJxBFiJJdOE7UcwevFAuw&s",
+                price:"666.99",
+                status:"inactive",
+                stock: 0
+            }
+        ]
+    
+    //- card
+    div(class="card")
+        div(class="card__head")
+            div(class="card__head-wrap")
+                //- filter
+                div(class="filter")
+                    span(class="filter__title") 
+                        <i class="fa-solid fa-filter"></i>
+                        |   Bộ lọc tìm kiếm
+                    div(class="filter__list")
+                        span(class="filter__list-item") Tất cả
+                        span(class="filter__list-item") Hoạt động
+                        span(class="filter__list-item") Dừng hoạt động
+                        span(class="filter__list-item")
+                            <i class="fa-solid fa-rotate-right"></i>
+                //- left    
+                div(class="card__head-left")
+                    //- form search
+                    +form-search
+                //- right
+                div(class="card__head-right")
+                    //- add product
+                    div(class="button button__outline")
+                        <i class="fa-solid fa-plus"></i>
+                        |   Thêm Mới
+               
+
+        div(class="card__body")
+            //- table
+            table(class="table") 
+                thead(class="table__head")
+                    tr 
+                        td 
+                            input(
+                                type = "checkbox"
+                                name=""
+                                class="checkbox"
+                            )
+                        th Sản Phẩm 
+                        th Danh Mục
+                        th Số Lượng
+                        th Giá
+                        th Trạng Thái
+                        th 
+                    
+                tbody(class="table__body")
+                    each item in sanPham 
+                        tr 
+                            td 
+                                input(
+                                    type = "checkbox"
+                                    name=""
+                                    class="checkbox"
+                                )
+                            td(class="table__title")
+                                img(
+                                    src=item.img 
+                                    alt=item.title
+                                )
+                                h3 #{item.title}
+                            
+                            td #{item.category}
+                            td 
+                                if(item.stock > 0)
+                                    span(class="badge badge--active") #{item.stock} In Stock
+                                else 
+                                    span(class="badge badge--inactive") Out of Stock
+                                    
+                            td #{item.price} VND
+                            
+                            td 
+                                if(item.status == "active")
+                                    span(class="badge badge--active") Hoạt động
+                                else 
+                                    span(class="badge badge--inactive") Dừng hoạt động
+                            td 
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                    //- end table
+        
+        div(class="card__footer")
+            div(class="card__footer-left")
+            div(class="card__footer-right")
+                +pagination
+    //- end card 
+

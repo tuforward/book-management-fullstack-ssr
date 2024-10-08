@@ -1,4 +1,4 @@
-/** IMPORT & REQUIRE PACKAGE */
+/** import & require package */
 const mongoose = require('mongoose');
 
 module.exports.connect = ()=> {
@@ -7,6 +7,6 @@ module.exports.connect = ()=> {
         console.log("Database MongoDB connected success!");
     }
     catch(error){
-        console.error("ERROR DATABSE", error);
+        console.error("Error Database", error);
     }
 }

@@ -9,8 +9,10 @@
 module.exports.dashboard = (req, res) => {
     try{
         res.send("DASHBOARD")
+        console.log(a);
+        let a = 10;
     }
     catch(error) {
-        console.error("ERROR DASHBOARD", error);
+        console.error("Error Dashboard", error);
     }
 }
